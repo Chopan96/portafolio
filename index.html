@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Portafolio - Francisco Tolosa</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Bootstrap -->
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <style>
+    body {
+      scroll-behavior: smooth;
+    }
+
+    .hero {
+      background:#095db6;
+      color: white;
+      padding: 80px 20px;
+      text-align: center;
+    }
+
+    .card:hover {
+      transform: scale(1.02);
+      transition: 0.2s;
+    }
+  </style>
+
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Francisco Tolosa</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <a class="nav-link d-inline text-white" href="#about">Sobre mí</a>
+        <a class="nav-link d-inline text-white" href="#skills">Skills</a>
+        <a class="nav-link d-inline text-white" href="#projects">Proyectos</a>
+
+      </div>
+    </div>
+  </div>
+</nav>
+
+
+
+
+<div style="margin-top: 70px;"></div>
+
+<!-- HERO -->
+
+<section class="hero">
+  <h1>Hola, soy Francisco </h1>
+  <p>Desarrollador Backend en formación | Django | APIs REST</p>
+</section>
+
+<!-- ABOUT -->
+
+<section id="about" class="container my-5">
+  <h2>Sobre mí</h2>
+  <p>
+    Soy técnico analista programador con enfoque en desarrollo backend.
+    Actualmente construyo proyectos con Django REST Framework, integrando frontend con JavaScript.
+  </p>
+  <hr>
+</section>
+
+<!-- SKILLS -->
+
+<section id="skills" class="container my-5">
+  <h2>Skills</h2>
+
+  <div class="d-flex flex-wrap gap-2">
+    <span class="badge bg-primary">Python</span>
+    <span class="badge bg-primary">Django</span>
+    <span class="badge bg-primary">Django REST</span>
+    <span class="badge bg-secondary">JavaScript</span>
+    <span class="badge bg-secondary">HTML</span>
+    <span class="badge bg-secondary">Bootstrap</span>
+    <span class="badge bg-dark">SQL</span>
+    <span class="badge bg-dark">Git</span>
+  </div>
+  <hr>
+</section>
+
+<!-- PROJECTS -->
+
+<section id="projects" class="container my-5">
+  <h2>Proyectos</h2>
+
+  <div class="row" id="projectsContainer"></div>
+  <hr>
+</section>
+
+<!-- FOOTER -->
+
+<footer class="text-center p-4 bg-dark text-white">
+  <p>© 2026 - Francisco Tolosa</p>
+</footer>
+
+<script>
+
+const projects = [
+  {
+    name: "TaskFlow",
+    description: "API REST para gestión de tareas con autenticación JWT",
+    links: [
+      { label: "Demo", url: "https://TU-FRONTEND.github.io" },
+      { label: "API", url: "https://TU-API.onrender.com" },
+      { label: "Código", url: "https://github.com/TU-USUARIO/taskflow" }
+    ]
+  }
+];
+
+function loadProjects() {
+  const container = document.getElementById("projectsContainer");
+
+  projects.forEach(project => {
+    const col = document.createElement("div");
+    col.className = "col-md-4 mb-4";
+
+    let linksHTML = "";
+
+    project.links.forEach(link => {
+      linksHTML += `<a href="${link.url}" target="_blank" class="btn btn-sm btn-outline-primary me-2">${link.label}</a>`;
+    });
+
+    col.innerHTML = `
+      <div class="card shadow-sm h-100">
+        <div class="card-body">
+          <h5>${project.name}</h5>
+          <p>${project.description}</p>
+          ${linksHTML}
+        </div>
+      </div>
+    `;
+
+    container.appendChild(col);
+  });
+}
+
+loadProjects();
+
+</script>
+
+</body>
+</html>
